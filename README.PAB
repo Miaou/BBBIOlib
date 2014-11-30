@@ -1,0 +1,13 @@
+Quelques infos sur la gestion du sous-module...
+D'après ce que j'ai compris de : http://git-scm.com/book/en/v2/Git-Tools-Submodules,
+ si je commit dans le submodule, j'ai l'impression que celui-ci sera dans cet état, même si
+  je remonte l'histoire de libDS18B20...
+
+Il faut faire une nouvelle branche, et des git submodule update --remote --merge ce qui fait un push puis un merge.
+
+Bon, je ne suis pas très sûr de moi, on va faire comme ils disent...
+
+Sauf que --remote n'est pas dans la version de git qu'on a sur le BBB...
+
+En regardant ailleurs (http://fiji.sc/Git_submodule_tutorial), je n'ai toujours pas bien saisi, il semblerait qu'un git submodule update serve à mettre le sous module dans l'état qui est associé au commit du module principal, donc ce qui m'intéresse en fait.
+Le coup de la branche et du --remote, je sais pas.
