@@ -1,13 +1,22 @@
 Quelques infos sur la gestion du sous-module...
 D'après ce que j'ai compris de : http://git-scm.com/book/en/v2/Git-Tools-Submodules,
- si je commit dans le submodule, j'ai l'impression que celui-ci sera dans cet état, même si
-  je remonte l'histoire de libDS18B20...
+si je commit dans le submodule, j'ai l'impression que celui-ci sera dans cet état, même si
+histoire de libDS18B20...
 
-Il faut faire une nouvelle branche, et des git submodule update --remote --merge ce qui fait un push puis un merge.
-
-Bon, je ne suis pas très sûr de moi, on va faire comme ils disent...
-
-Sauf que --remote n'est pas dans la version de git qu'on a sur le BBB...
-
-En regardant ailleurs (http://fiji.sc/Git_submodule_tutorial), je n'ai toujours pas bien saisi, il semblerait qu'un git submodule update serve à mettre le sous module dans l'état qui est associé au commit du module principal, donc ce qui m'intéresse en fait.
+En regardant ailleurs (http://fiji.sc/Git_submodule_tutorial), je n'ai toujours pas bien saisi,
+il semblerait qu'un git submodule update serve à mettre le sous module dans l'état 
+qui est associé au commit du module principal, donc ce qui m'intéresse en fait.
 Le coup de la branche et du --remote, je sais pas.
+
+En fait non. Juste que c'est vraiment un arbre qui n'a rien à voir avec celui qui le contient.
+Donc modifier un sous-module ne peut avoir d'impact ailleurs qu'en locale que
+si ces modifs sont push quelque part...
+Et le sur-module ne fait que dire "il y a un sous-module dans ce dossier" et "il en est à tel commit"
+
+Donc on ne peut pas vraiment utiliser un repo de quelqu'un d'autre...
+(http://stackoverflow.com/questions/10856138/make-change-to-a-git-submodule-and-keep-the-changes)
+Et j'ai donc forké BBBIOlib pour pouvoir commiter dessus.
+
+Pour ceux qui voudraient avoir cette lib en local (et qui n'ont pas moyen d'ouvrir ce fichier)
+git submodule init
+git submodule update
